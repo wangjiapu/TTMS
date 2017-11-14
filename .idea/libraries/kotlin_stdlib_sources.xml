@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="kotlin-stdlib-sources">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/kotlin-stdlib-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/kotlin-stdlib-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
