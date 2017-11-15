@@ -11,8 +11,14 @@ class Login:HttpServlet() {
     }
 
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
+
         val name=req.getParameter("name")
         val pwd=req.getParameter("pwd")
-        resp.writer.print("${name}----${pwd}")
+        if (name.equals("pppp")) {
+            resp.writer.print("${name}----${pwd}")
+        }else{
+            println("jfcdslkjnflkds")
+        }
+
     }
 }

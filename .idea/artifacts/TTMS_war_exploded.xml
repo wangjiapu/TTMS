@@ -7,6 +7,14 @@
         <element id="directory" name="classes">
           <element id="module-output" name="TTMS" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="kotlin-test" />
+          <element id="library" level="project" name="KotlinJavaRuntime" />
+          <element id="library" level="project" name="kotlin-reflect" />
+          <element id="library" level="project" name="kotlin-stdlib" />
+          <element id="library" level="project" name="kotlin-stdlib-jre7" />
+          <element id="library" level="project" name="kotlin-stdlib-jre8" />
+        </element>
       </element>
     </root>
   </artifact>
