@@ -102,5 +102,4 @@ public final class ConnectionManager {
         DataSources.destroy(ds);
         super.finalize();
     }
-
 }

@@ -13,8 +13,8 @@
   <body>
  <form action="/loginservlet" method="post">
 
-   name:<input type="text" name="name" value=""><br/>
-   pwd:<input type="text" name="pwd" value=""><br/>
+   name:<input type="text" name="user_name" value=""><br/>
+   pwd:<input type="text" name="user_password" value=""><br/>
    <input type="submit" value="提交">
  </form>
   </body>
