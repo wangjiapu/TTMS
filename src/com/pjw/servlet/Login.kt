@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+
 @WebServlet("/loginservlet")
 class Login:HttpServlet() {
     override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
@@ -17,9 +18,7 @@ class Login:HttpServlet() {
         if (name.equals("pppp")) {
             resp.writer.print("${name}----${pwd}")
         }else{
-
             println("jfcdslkjnflkds")
         }
-
     }
 }
