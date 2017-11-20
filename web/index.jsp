@@ -9,12 +9,18 @@
 <html>
   <head>
     <title>欢迎登录ttms影院</title>
+      <script type="text/javascript" language="JavaScript">
+          function register() {
+              window.self.location = "register.jsp";
+          }
+      </script>
   </head>
   <body>
  <form action="/loginServlet" method="post">
 
    name:<input type="text" name="user_name" value=""><br/>
    pwd:<input type="text" name="user_password" value=""><br/>
+     <input type="button" value="注册" onclick="register()">
    <input type="submit" value="提交">
  </form>
   </body>
