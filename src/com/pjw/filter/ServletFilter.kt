@@ -13,10 +13,12 @@ class ServletFilter : Filter {
                           p2: FilterChain) {
         request.characterEncoding="utf-8"
         response.characterEncoding="utf-8"
-        if(request.getParameter("user_name")!=null ||
+        /*if(request.getParameter("user_name")!=null ||
                 null!=request.getParameter("user_password")){
             p2.doFilter(request,response)
-        }
+        }*/
+
+       p2.doFilter(request,response)
     }
 
     override fun init(p0: FilterConfig?) {

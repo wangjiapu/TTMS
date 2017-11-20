@@ -16,13 +16,13 @@ interface IBase<E> {
     /**
      * 查询所有用户
      */
-    fun findEmployeeAll():MutableList<E>?
+    fun findDataAll():MutableList<E>?
     /**
      * 更具用户id查询
      */
-    fun findEmployeeByID(ID:Int):MutableList<E>?
+    fun findDataByID(ID:Int):MutableList<E>?
     /**
      * 根据用户名查询
      */
-    fun findEmplyoeeByName(Name:String):MutableList<E>?
+    fun findDataByName(Name:String):MutableList<E>?
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse
 
 @WebServlet("/loginServlet")
 class Login:HttpServlet() {
-    private val list= ArrayList<User>()
+
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         val name=req.getParameter("user_name")
         val pwd=req.getParameter("user_password")
@@ -20,20 +20,16 @@ class Login:HttpServlet() {
     }
 
      fun loginMsg(name: String, pwd: String): String {
-         var result:String ?= null
-         val userDao=DaoFactory.creatXXDao(UserDao::class)
-         if (userDao!=null) {
-             list.addAll(userDao.findEmployeeAll())
-         }
-         if (list==null){
-             result=Data2Gson.islogin(null)
-         }else{
-             list.forEach {
-                 result=Data2Gson.islogin(it)
-                 println(result)
+         val userDao=DaoFactory.createUserDao()
+         val list= userDao.findDataByName(name)
+         if (list!=null || list?.size != 0 ){
+             list!!.forEach {
+                 if (it.pwd.equals(pwd)){
+                     return Data2Gson.islogin(it)
+                 }
              }
          }
-         return result!!
+         return Data2Gson.islogin(null)
      }
 }
 

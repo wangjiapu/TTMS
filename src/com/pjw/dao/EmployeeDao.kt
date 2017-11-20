@@ -48,7 +48,7 @@ class EmployeeDao: IBase<Employee> {
         return true
     }
 
-    override fun findEmployeeAll(): MutableList<Employee>? {
+    override fun findDataAll(): MutableList<Employee>? {
         val list= ArrayList<Employee>()
         val con = ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.ALL_EMPLOYEE)
@@ -70,7 +70,7 @@ class EmployeeDao: IBase<Employee> {
      * 根据用户id获取用户信息
      * @return Employee列表
      */
-    override fun findEmployeeByID(ID: Int): MutableList<Employee>? {
+    override fun findDataByID(ID: Int): MutableList<Employee>? {
         val list=ArrayList<Employee>()
         val con =ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.FIND_EMPL_BY_ID)
@@ -91,7 +91,7 @@ class EmployeeDao: IBase<Employee> {
      * 根据用户名获取用户信息
      * @return Employee列表
      */
-    override fun findEmplyoeeByName(Name: String): MutableList<Employee>? {
+    override fun findDataByName(Name: String): MutableList<Employee>? {
         val list=ArrayList<Employee>()
         var con:Connection ?=null
         var pstmt:PreparedStatement ?= null

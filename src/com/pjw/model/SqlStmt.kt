@@ -17,7 +17,7 @@ object SqlStmt {
      */
     val FIND_EMPL_BY_NAME="select * from employee where emp_name like ?"
     val FIND_EMPL_BY_ID="select * from employee where emp_id=?"
-    val FIND_USER_BY_NAME="select * from user where emp_name = ?"
+    val FIND_USER_BY_NAME="select * from user where emp_no = ?"
 
     /**
      * 修改语句

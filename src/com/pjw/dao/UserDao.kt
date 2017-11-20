@@ -44,7 +44,7 @@ class UserDao:IBase<User> {
         return true
     }
 
-    override fun findEmployeeAll(): MutableList<User>? {
+    override fun findDataAll(): MutableList<User>? {
         val list= ArrayList<User>()
         val con = ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.ALL_USER)
@@ -61,11 +61,11 @@ class UserDao:IBase<User> {
         return list
     }
 
-    override fun findEmployeeByID(ID: Int): MutableList<User>? {
+    override fun findDataByID(ID: Int): MutableList<User>? {
         return null
     }
 
-    override fun findEmplyoeeByName(Name: String): MutableList<User>? {
+    override fun findDataByName(Name: String): MutableList<User>{
         val list=ArrayList<User>()
         var con: Connection?=null
         var pstmt: PreparedStatement?= null
@@ -75,6 +75,8 @@ class UserDao:IBase<User> {
             pstmt=con.prepareStatement(SqlStmt.FIND_USER_BY_NAME)
             pstmt.setString(1,Name)
             rs=pstmt.executeQuery()
+            var i=0
+
             while (rs.next()){
                 list.add(User(rs.getString("emp_no"),
                         rs.getString("emp_pass"),
