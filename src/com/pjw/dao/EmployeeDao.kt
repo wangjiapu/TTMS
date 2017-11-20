@@ -1,6 +1,6 @@
 package com.pjw.dao
 
-import com.pjw.idao.IEmployee
+import com.pjw.idao.IBase
 import com.pjw.model.Employee
 import com.pjw.model.SqlStmt
 import com.pjw.utils.ConnectionManager
@@ -8,41 +8,41 @@ import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
-class EmployeeDao:IEmployee {
+class EmployeeDao: IBase<Employee> {
 
-    override fun insert(employoee: Employee): Boolean {
+    override fun insert(e: Employee): Boolean {
         var result=false
         val con=ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.INSERT_EMPL)
-        pstmt.setString(1,employoee.emp_no)
-        pstmt.setString(2,employoee.emp_name)
-        pstmt.setString(3,employoee.emp_tel_num)
-        pstmt.setString(4,employoee.emp_addr)
-        pstmt.setString(5,employoee.emp_email)
+        pstmt.setString(1,e.emp_no)
+        pstmt.setString(2,e.emp_name)
+        pstmt.setString(3,e.emp_tel_num)
+        pstmt.setString(4,e.emp_addr)
+        pstmt.setString(5,e.emp_email)
         pstmt.executeUpdate()
         result=true
         ConnectionManager.close(null,pstmt,con)
-        return result;
+        return result
     }
 
-    override fun delete(employeeID: Int): Boolean {
+    override fun delete(ID: Int): Boolean {
         val con=ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.DELETE_EMPL_BYID)
-        pstmt.setInt(1,employeeID)
+        pstmt.setInt(1,ID)
         pstmt.executeUpdate()
         ConnectionManager.close(null,pstmt,con)
         return true
     }
 
-    override fun update(employoee: Employee): Boolean {
+    override fun update(e: Employee): Boolean {
         val con=ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.UPDATE_EMPL)
-        pstmt.setString(1,employoee.emp_no)
-        pstmt.setString(2,employoee.emp_name)
-        pstmt.setString(3,employoee.emp_tel_num)
-        pstmt.setString(4,employoee.emp_addr)
-        pstmt.setString(5,employoee.emp_email)
-        pstmt.setString(6,employoee.emp_id.toString())
+        pstmt.setString(1,e.emp_no)
+        pstmt.setString(2,e.emp_name)
+        pstmt.setString(3,e.emp_tel_num)
+        pstmt.setString(4,e.emp_addr)
+        pstmt.setString(5,e.emp_email)
+        pstmt.setString(6,e.emp_id.toString())
         pstmt.executeUpdate()
         ConnectionManager.close(null,pstmt,con)
         return true
@@ -53,7 +53,7 @@ class EmployeeDao:IEmployee {
         val con = ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.ALL_EMPLOYEE)
         val rs=pstmt.executeQuery()
-        var empl :Employee ?= null
+        var empl :Employee
         while (rs.next()){
             empl= Employee(rs.getInt("emp_id"),
                     rs.getString("emp_no"),

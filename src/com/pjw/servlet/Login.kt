@@ -8,18 +8,13 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@WebServlet("/loginservlet")
+@WebServlet("/loginServlet")
 class Login:HttpServlet() {
 
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
-        req.characterEncoding="utf-8"
-        resp.characterEncoding="utf-8"
-        val out=resp.writer
         val name=req.getParameter("user_name")
         val pwd=req.getParameter("user_password")
-        if (name!=null || pwd!=null){
-            out.print(loginMsg(name,pwd))
-        }
+        resp.writer.print(loginMsg(name,pwd))
     }
 
      fun loginMsg(name: String, pwd: String): String{

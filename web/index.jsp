@@ -11,7 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
- <form action="/loginservlet" method="post">
+ <form action="/loginServlet" method="post">
 
    name:<input type="text" name="user_name" value=""><br/>
    pwd:<input type="text" name="user_password" value=""><br/>
