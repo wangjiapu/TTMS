@@ -15,4 +15,7 @@ object Data2Gson {
         }
         return gson.toJson(user)
     }
+    fun isRegister(b:Boolean):String{
+        return gson.toJson(b)
+    }
 }

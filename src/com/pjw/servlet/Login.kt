@@ -1,8 +1,6 @@
 package com.pjw.servlet
 
-import com.pjw.dao.UserDao
 import com.pjw.idao.DaoFactory
-import com.pjw.model.User
 import com.pjw.utils.Data2Gson
 
 import javax.servlet.annotation.WebServlet
@@ -19,24 +17,8 @@ class Login:HttpServlet() {
         val pwd=req.getParameter("user_password")
         session=req.getSession(false)
         session.maxInactiveInterval=10*60
-       //login2jsp(name,pwd,req,resp)
-        resp.writer.print(loginMsg(name,pwd))
+       login2jsp(name,pwd,req,resp)
     }
-
-     fun loginMsg(name: String, pwd: String): String {
-         val userDao=DaoFactory.createUserDao()
-         val list= userDao.findDataByName(name)
-         if (list!=null || list?.size != 0 ){
-             list!!.forEach {
-                 if (it.pwd.equals(pwd)){
-                     session.setAttribute("SEEESIONID",name)
-                     return Data2Gson.islogin(it)
-                 }
-             }
-         }
-         return Data2Gson.islogin(null)
-     }
-
     /**
      * 登录用jsp页面显示
      */
@@ -46,11 +28,32 @@ class Login:HttpServlet() {
         if (list!=null || list?.size != 0 ){
             list!!.forEach {
                 if (it.pwd.equals(pwd)){
-                    req.getRequestDispatcher("/LoginOK.jsp").forward(req,resp)
+                    session.setAttribute("SEEESIONID",name)
+                    when(it.type){
+                        1 -> req.getRequestDispatcher("/admin.jsp").forward(req,resp)
+                        0 -> req.getRequestDispatcher("/user.jsp").forward(req,resp)
+                    }
                 }
             }
         }
-        req.getRequestDispatcher("/index.jsp").forward(req,resp)
+        req.getRequestDispatcher("/error.jsp").forward(req,resp)
+    }
+
+    fun loginMsg(name: String, pwd: String): String {
+        val userDao=DaoFactory.createUserDao()
+        val list= userDao.findDataByName(name)
+        if (list!=null || list?.size != 0 ){
+            list!!.forEach {
+                if (it.pwd.equals(pwd)){
+                    session.setAttribute("SEEESIONID",name)
+                    when(it.type){
+                    //1 ->
+                    }
+                    return Data2Gson.islogin(it)
+                }
+            }
+        }
+        return Data2Gson.islogin(null)
     }
 }
 

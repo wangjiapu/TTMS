@@ -11,6 +11,6 @@
     <title>登录成功</title>
 </head>
 <body>
-<h4>欢迎你</h4>
+<h4>管理员界面</h4>
 </body>
 </html>
