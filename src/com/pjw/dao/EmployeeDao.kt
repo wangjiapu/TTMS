@@ -25,10 +25,10 @@ class EmployeeDao: IBase<Employee> {
         return result
     }
 
-    override fun delete(ID: Int): Boolean {
+    override fun delete(e: Employee): Boolean {
         val con=ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.DELETE_EMPL_BYID)
-        pstmt.setInt(1,ID)
+        pstmt.setInt(1,e.emp_id)
         pstmt.executeUpdate()
         ConnectionManager.close(null,pstmt,con)
         return true
@@ -42,7 +42,7 @@ class EmployeeDao: IBase<Employee> {
         pstmt.setString(3,e.emp_tel_num)
         pstmt.setString(4,e.emp_addr)
         pstmt.setString(5,e.emp_email)
-        pstmt.setString(6,e.emp_id.toString())
+        pstmt.setInt(6,e.emp_id)
         pstmt.executeUpdate()
         ConnectionManager.close(null,pstmt,con)
         return true
@@ -98,7 +98,7 @@ class EmployeeDao: IBase<Employee> {
         var rs: ResultSet ?= null
         try {
             con =ConnectionManager.getInstance().connection
-            pstmt=con.prepareStatement(SqlStmt.FIND_USER_BY_NAME)
+            pstmt=con.prepareStatement(SqlStmt.FIND_EMPL_BY_NAME)
             // pstmt.setString(1,"%${Name}%")
             pstmt.setString(1,Name)
             rs=pstmt.executeQuery()
@@ -109,7 +109,7 @@ class EmployeeDao: IBase<Employee> {
                         rs.getString("emp_tel_num"),
                         rs.getString("emp_addr"),
                         rs.getString("emp_email")))
-                println(list[0].emp_name+list[0].emp_tel_num)
+                //println(list[0].emp_name+list[0].emp_tel_num)
             }
         }catch (e:Exception){
             println(e.message)

@@ -4,6 +4,7 @@ import com.pjw.dao.EmployeeDao
 import com.pjw.dao.UserDao
 import com.pjw.model.Employee
 import com.pjw.model.User
+import kotlin.reflect.KClass
 
 object DaoFactory {
     /**
@@ -13,8 +14,10 @@ object DaoFactory {
         return EmployeeDao()
     }
 
-    fun <T : Any?> creatXXDao(c:Class<T:IBase<E>>):IBase<E> {
-
+    fun <E : Any> creatXXDao(c:KClass<E>): IBase<E>? {
+        var base:IBase<E> ?= null
+        base= (Class.forName(c.simpleName).newInstance() as IBase<E>?)
+        return base
     }
     /**
      * 创建用户操作类
@@ -23,3 +26,4 @@ object DaoFactory {
         return UserDao()
     }
 }
+

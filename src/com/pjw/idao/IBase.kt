@@ -8,7 +8,7 @@ interface IBase<E> {
     /**
      * 删
      */
-    fun delete(ID:Int):Boolean
+    fun delete(e:E):Boolean
     /**
      * 改
      */
