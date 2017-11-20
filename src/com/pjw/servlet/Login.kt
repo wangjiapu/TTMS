@@ -24,7 +24,6 @@ class Login:HttpServlet() {
          val userDao=DaoFactory.creatXXDao(UserDao::class)
          if (userDao!=null) {
              list.addAll(userDao.findEmployeeAll())
-             //list = userDao.findEmplyoeeByName(name)
          }
          if (list==null){
              result=Data2Gson.islogin(null)
