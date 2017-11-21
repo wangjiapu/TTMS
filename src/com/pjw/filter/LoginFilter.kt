@@ -29,7 +29,7 @@ class LoginFilter : Filter {
         var flag=false
         run breaking@{
             dofilters.forEach continuing@{
-                if (path.contains(it)){
+                if (path.contains(it)|| path.endsWith(".js")){
                     flag=true
                     p2.doFilter(request,response)
                    return@breaking
