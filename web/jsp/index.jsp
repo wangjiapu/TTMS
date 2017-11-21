@@ -26,7 +26,7 @@
 
  </form>
  <form action="/Uploadservlet" method="post" enctype="multipart/form-data" >
-      上传头像:<input type="file" name="upload">
+      上传头像:<input type="file" name="head_imge">
       <br/><br/>
       <input type="submit" value="上传">
  </form>
