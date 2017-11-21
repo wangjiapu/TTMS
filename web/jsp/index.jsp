@@ -30,5 +30,10 @@
       <br/><br/>
       <input type="submit" value="上传">
  </form>
+ <form action="/downimge" method="post" >
+     <input type="text" name="url" value="timg.jpg">
+     <br/><br/>
+     <input type="submit" value="下载">
+ </form>
   </body>
 </html>

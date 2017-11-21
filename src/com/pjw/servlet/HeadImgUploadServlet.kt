@@ -1,5 +1,6 @@
 package com.pjw.servlet
 
+import com.pjw.model.User
 import java.io.File
 import javax.servlet.annotation.MultipartConfig
 import javax.servlet.annotation.WebServlet
@@ -7,6 +8,12 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import javax.servlet.http.Part
+import com.sun.deploy.trace.Trace.flush
+import com.sun.xml.internal.ws.streaming.XMLStreamWriterUtil.getOutputStream
+import javax.servlet.ServletOutputStream
+import java.io.FileInputStream
+import java.net.URLEncoder
+
 
 /**
  * 用户头像上传类
@@ -27,8 +34,9 @@ class HeadImgUploadServlet:HttpServlet() {
         val dir = File(filePath)
         if(!dir.exists())
             dir.mkdir()
+        println("$filePath${File.separator}$fileName")
         part.write("$filePath${File.separator}$fileName")
-
+       resp.writer.print("上传成功")
     }
 
     /**
