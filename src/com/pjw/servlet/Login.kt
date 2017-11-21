@@ -31,13 +31,13 @@ class Login:HttpServlet() {
                 if (it.pwd.equals(pwd)){
                     session.setAttribute("SEEESIONID",name)
                     when(it.type){
-                        1 -> req.getRequestDispatcher("/admin.jsp").forward(req,resp)
-                        0 -> req.getRequestDispatcher("/user.jsp").forward(req,resp)
+                        1 -> req.getRequestDispatcher("/jsp/admin.jsp").forward(req,resp)
+                        0 -> req.getRequestDispatcher("/jsp/user.jsp").forward(req,resp)
                     }
                 }
             }
         }
-        req.getRequestDispatcher("/error.jsp").forward(req,resp)
+        req.getRequestDispatcher("/jsp/error.jsp").forward(req,resp)
     }
 
     fun loginMsg(name: String, pwd: String): String {

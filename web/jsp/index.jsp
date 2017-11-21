@@ -21,7 +21,13 @@
    name:<input type="text" name="user_name" value=""><br/>
    pwd:<input type="text" name="user_password" value=""><br/>
      <input type="button" value="注册" onclick="register()">
-   <input type="submit" value="提交">
+   <input type="submit" value="提交"><br/>
+
+     <form action="/Uploadservlet" method="post" enctype="multipart/form-data">
+         选择一个文件:<input type="file" name="upload">
+         <br/><br/>
+         <input type="submit" value="上传">
+     </form>
  </form>
   </body>
 </html>
