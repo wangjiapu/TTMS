@@ -11,6 +11,6 @@ import javax.servlet.http.HttpServletResponse
 @WebServlet("/Uploadservlet")
 class HeadImgUploadServlet:HttpServlet() {
     override fun doPost(req: HttpServletRequest?, resp: HttpServletResponse?) {
-        super.doPost(req, resp)
+        resp.writer.print("上传成功")
     }
 }

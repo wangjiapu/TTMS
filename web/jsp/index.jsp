@@ -23,11 +23,12 @@
      <input type="button" value="注册" onclick="register()">
    <input type="submit" value="提交"><br/>
 
-     <form action="/Uploadservlet" method="post" enctype="multipart/form-data">
-         选择一个文件:<input type="file" name="upload">
-         <br/><br/>
-         <input type="submit" value="上传">
-     </form>
+
+ </form>
+ <form action="/Uploadservlet" method="post" enctype="multipart/form-data" >
+      上传头像:<input type="file" name="upload">
+      <br/><br/>
+      <input type="submit" value="上传">
  </form>
   </body>
 </html>
