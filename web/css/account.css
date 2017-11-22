@@ -1,0 +1,23 @@
+.account{
+    display: none
+
+}
+
+.accountItem{
+    width: 90%;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    color: #337ab7;
+    font-size: large;
+}
+.accounthead{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+.accountbtn{
+    float:right;
+    margin: 30px 5px;
+}

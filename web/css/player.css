@@ -1,0 +1,22 @@
+.player{
+    display: none
+}
+.playerItem{
+    width: 95%;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    color: #337ab7;
+    font-size: large;
+}
+
+.playerhead{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+.playerbtn{
+    float:right;
+    margin: 30px 5px;
+}
