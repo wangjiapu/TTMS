@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+ <%-- <head>
     <title>欢迎登录ttms影院</title>
       <script type="text/javascript" language="JavaScript">
           function register() {
@@ -17,10 +17,17 @@
       <script src="${pageContext.request.contextPath}/js/ppp.js" type="text/javascript">
 
       </script>
-  </head>
+  </head>--%>
+ <head>
+     <meta charset="UTF-8">
+     <title>成人影院</title>
+     <link rel="stylesheet" href="../lib/bootstrap.min.css">
+     <link rel="stylesheet" href="../css/style.css">
+     <script src="../lib/jquery-3.2.1.min.js"></script>
+ </head>
   <body>
 
- <form action="/loginServlet" method="post">
+ <%--<form action="/loginServlet" method="post">
 
    name:<input type="text" name="user_name" value=""><br/>
    pwd:<input type="text" name="user_password" value=""><br/>
@@ -39,6 +46,28 @@
      <input type="text" name="url" value="timg.jpg">
      <br/><br/>
      <input type="submit" value="下载">
- </form>
+ </form>--%>
+ <div class="content">
+     <img src="../image/logo.png" class="loginImage">
+     <div class="loginform">
+         <form action="#">
+             <div class="form-group">
+                 <h1 class="loginLogo">登  录</h1>
+             </div>
+             <div class="form-group">
+                 <label for="account" class="control-label">账户：</label>
+                 <input type="text" id="account" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label for="password" class="control-label">密码：</label>
+                 <input type="password" id="password" class="form-control">
+             </div>
+             <div class="form-group">
+                 <button class="btn btn-block btn-info" id="submit">提交</button>
+             </div>
+         </form>
+     </div>
+ </div>
+ <script src="../js/login.js"></script>
   </body>
 </html>
