@@ -14,8 +14,12 @@
               window.self.location = "register.jsp";
           }
       </script>
+      <script src="${pageContext.request.contextPath}/js/ppp.js" type="text/javascript">
+
+      </script>
   </head>
   <body>
+
  <form action="/loginServlet" method="post">
 
    name:<input type="text" name="user_name" value=""><br/>

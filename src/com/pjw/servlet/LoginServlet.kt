@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse
 import javax.servlet.http.HttpSession
 
 @WebServlet("/loginServlet")
-class Login:HttpServlet() {
+class LoginServlet :HttpServlet() {
     private lateinit var session:HttpSession
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         val name=req.getParameter("user_name")

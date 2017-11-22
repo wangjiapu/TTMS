@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 @WebServlet("/downimge")
-class DownFile:HttpServlet() {
+class DownFileServlet :HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse) {
         val url=req.getParameter("url")
         val filePath = servletContext.getRealPath("/WEB-INF/uploadFile")
