@@ -11,6 +11,6 @@
     <title>头像</title>
 </head>
 <body>
-影片海报:<img src="${user.head_path}" width="200px"><br>
+<p>dncsakjfnbjkdsan</p>
 </body>
 </html>

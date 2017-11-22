@@ -32,8 +32,18 @@ class LoginServlet :HttpServlet() {
                 if (it.pwd.equals(pwd)){
                     session.setAttribute("SEEESIONID",name)
                     when(it.type){
-                        1 -> req.getRequestDispatcher("/jsp/admin.jsp").forward(req,resp)
-                        0 -> req.getRequestDispatcher("/jsp/user.jsp").forward(req,resp)
+                        1 -> {
+                           // resp.writer.print(Data2Gson.islogin(it))
+                            println("111111111111")
+                            //req.getRequestDispatcher("/jsp/admin.jsp").forward(req,resp)
+                            //req.getRequestDispatcher("/jsp/test.jsp").forward(req,resp)
+                            resp.sendRedirect("/jsp/test.jsp")
+                        }
+                        0 -> {
+                            resp.writer.print(Data2Gson.islogin(it))
+                            println("2222222222222")
+                            req.getRequestDispatcher("/jsp/user.jsp").forward(req,resp)
+                        }
                     }
                 }
             }
