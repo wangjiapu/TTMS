@@ -31,11 +31,8 @@ class HeadImgUploadServlet:HttpServlet() {
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         req.characterEncoding="utf-8"
         val username=req.getParameter("name")
-        val userpwd=req.getParameter("pwd")
-        val usertype=req.getParameter("type")
 
-        if (StringUtils.isEmpty(username) && StringUtils.isEmpty(userpwd)
-                &&StringUtils.isEmpty(usertype)){
+        if (StringUtils.isEmpty(username)){
             val part=req.getPart("head_imge")
             val fileName=getFileName(part)
             //保存图片
@@ -45,22 +42,28 @@ class HeadImgUploadServlet:HttpServlet() {
                 dir.mkdir()
             println("$filePath${File.separator}$fileName")
             part.write("$filePath${File.separator}$fileName")
-            saveHeadImage2Data(username,userpwd,usertype,fileName)
-            resp.writer.print("上传成功")
+            saveHeadImage2Data(username,fileName)
+            resp.writer.print("Upload successful !!!")
         }else{
-            resp.writer.print("请输入正确的用户信息")
+            resp.writer.print("Please enter the correct information!!!")
         }
     }
 
     /**
      * 保存头像url到数据库
      */
-    private fun saveHeadImage2Data(username: String, userpwd: String,
-                                   usertype: String, fileName: String):Boolean {
-
-        val user=User(username,userpwd,usertype.toInt(),fileName)
+    private fun saveHeadImage2Data(username: String, fileName: String):Boolean {
         val userDao=DaoFactory.createUserDao()
-        return userDao.update(user)
+        val userList=userDao.findDataByName(username)
+
+        if (userList!=null && userList.size!=0){
+            val user=userList[0]
+            user.head_path=fileName
+            println("${user.name}++++${user.pwd}")
+
+            return userDao.update(user)
+        }
+        return false
     }
 
     /**

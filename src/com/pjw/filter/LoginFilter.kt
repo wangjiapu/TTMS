@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter
 import javax.servlet.annotation.WebInitParam
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-@WebFilter(urlPatterns = arrayOf("/*"), initParams = arrayOf(WebInitParam(name ="encoding",value = "UTF-8")))
+//@WebFilter(urlPatterns = arrayOf("/*"), initParams = arrayOf(WebInitParam(name ="encoding",value = "UTF-8")))
 class LoginFilter : Filter {
     private lateinit var encoding:String
     /**
@@ -27,7 +27,7 @@ class LoginFilter : Filter {
         request.characterEncoding=encoding
         val path=req.requestURL
         println(path)
-        var flag=false
+       /* var flag=false
         run breaking@{
             dofilters.forEach continuing@{
                 if (path.contains(it)|| path.endsWith(".js")){
@@ -43,14 +43,14 @@ class LoginFilter : Filter {
                 resp.sendRedirect("jsp/index.jsp")
             }else
                 p2.doFilter(request,response)
-        }
+        }*/
     }
 
     override fun init(p0: FilterConfig) {
-        println("初始化过滤器BFilter")
+        println("初始化LoginFilter")
         encoding=p0.getInitParameter("encoding")
     }
     override fun destroy() {
-        println("销毁过滤器BFilter")
+        println("销毁LoginFilter")
     }
 }

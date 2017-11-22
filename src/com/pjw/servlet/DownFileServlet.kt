@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-@WebServlet("/downimge")
+@WebServlet("/GetHeadImge")
 class DownFileServlet :HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse) {
         val url=req.getParameter("url")
@@ -28,7 +28,7 @@ class DownFileServlet :HttpServlet() {
             out.flush()
             out.close()
         }else{
-            resp.writer.print("111111111111")
+            resp.writer.print("file does not exist")
         }
     }
 }

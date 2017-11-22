@@ -39,6 +39,7 @@ class UserDao:IBase<User> {
         pstmt.setString(2,e.pwd)
         pstmt.setInt(3,e.type)
         pstmt.setString(4,e.head_path)
+        pstmt.setString(5,e.name)
         pstmt.executeUpdate()
         ConnectionManager.close(null,pstmt,con)
         return true
