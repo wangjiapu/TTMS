@@ -50,20 +50,20 @@
  <div class="content">
      <img src="../image/logo.png" class="loginImage">
      <div class="loginform">
-         <form action="#">
+         <form action="/loginServlet" method="post">
              <div class="form-group">
                  <h1 class="loginLogo">登  录</h1>
              </div>
              <div class="form-group">
                  <label for="account" class="control-label">账户：</label>
-                 <input type="text" id="account" class="form-control">
+                 <input type="text" id="account" class="form-control" name="user_name">
              </div>
              <div class="form-group">
                  <label for="password" class="control-label">密码：</label>
-                 <input type="password" id="password" class="form-control">
+                 <input type="password" id="password" class="form-control" name="user_password">
              </div>
              <div class="form-group">
-                 <button class="btn btn-block btn-info" id="submit">提交</button>
+                 <input type="submit"  class="btn btn-block btn-info" id="submit" value="提交">
              </div>
          </form>
      </div>

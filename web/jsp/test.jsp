@@ -11,6 +11,10 @@
     <title>头像</title>
 </head>
 <body>
-<p>dncsakjfnbjkdsan</p>
+<form action="/loginServlet" method="post">
+    <input type="text" name="user_name" value="">
+    <input type="text" name="user_password" value="">
+    <input type="submit" value="ppp">
+</form>
 </body>
 </html>

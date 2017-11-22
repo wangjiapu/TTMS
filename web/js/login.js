@@ -11,22 +11,22 @@
     }
 })*/
 
-
-$("#submit").click((ev) => {
-    ev.preventDefault();
-    const account = $("#account").val();
-    const password = $("#password").val();
-    if (!account && !password) {
-        alert('请输入完整信息');
-    }
-    else {
-        const loginData = {
-            user_name: account,
-            user_password: password
-        };
-        login(loginData);
-    }
-})
+//
+// $("#submit").click((ev) => {
+//     ev.preventDefault();
+//     const account = $("#account").val();
+//     const password = $("#password").val();
+//     if (!account && !password) {
+//         alert('请输入完整信息');
+//     }
+//     else {
+//         const loginData = {
+//             user_name: account,
+//             user_password: password
+//         };
+//         login(loginData);
+//     }
+// })
 
 const login = (loginData) => {
     $.ajax({
@@ -34,10 +34,11 @@ const login = (loginData) => {
         type: "post",
         data: loginData,
         success: function () {
-          alert("登录成功");
+            // window.location.reload();
+          // alert("登录成功");
         },
         error: function () {
-            alert("登录失败");
+            // alert("登录失败");
         }
     })
 }

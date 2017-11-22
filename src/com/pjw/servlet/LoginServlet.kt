@@ -12,13 +12,13 @@ import javax.servlet.http.HttpSession
 @WebServlet("/loginServlet")
 class LoginServlet :HttpServlet() {
     private lateinit var session:HttpSession
+
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         val name=req.getParameter("user_name")
         val pwd=req.getParameter("user_password")
-        println("loginServlet")
+        //resp.sendRedirect(req.contextPath+"/jsp/admin.jsp")
         session=req.getSession(false)
         session.maxInactiveInterval=10*60
-
        login2jsp(name,pwd,req,resp)
     }
     /**
@@ -33,16 +33,12 @@ class LoginServlet :HttpServlet() {
                     session.setAttribute("SEEESIONID",name)
                     when(it.type){
                         1 -> {
-                           // resp.writer.print(Data2Gson.islogin(it))
-                            println("111111111111")
-                            //req.getRequestDispatcher("/jsp/admin.jsp").forward(req,resp)
-                            //req.getRequestDispatcher("/jsp/test.jsp").forward(req,resp)
-                            resp.sendRedirect("/jsp/test.jsp")
+                            resp.sendRedirect(req.contextPath+"/jsp/admin.jsp")
+                            return
                         }
                         0 -> {
-                            resp.writer.print(Data2Gson.islogin(it))
-                            println("2222222222222")
-                            req.getRequestDispatcher("/jsp/user.jsp").forward(req,resp)
+                            resp.sendRedirect(req.contextPath+"/jsp/user.jsp")
+                            return
                         }
                     }
                 }
