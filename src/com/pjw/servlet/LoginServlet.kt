@@ -18,6 +18,7 @@ class LoginServlet :HttpServlet() {
         println("loginServlet")
         session=req.getSession(false)
         session.maxInactiveInterval=10*60
+
        login2jsp(name,pwd,req,resp)
     }
     /**
