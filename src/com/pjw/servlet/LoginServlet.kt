@@ -16,7 +16,6 @@ class LoginServlet :HttpServlet() {
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         val name=req.getParameter("user_name")
         val pwd=req.getParameter("user_password")
-        //resp.sendRedirect(req.contextPath+"/jsp/admin.jsp")
         session=req.getSession(false)
         session.maxInactiveInterval=10*60
        login2jsp(name,pwd,req,resp)

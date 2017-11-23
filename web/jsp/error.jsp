@@ -9,8 +9,23 @@
 <html>
 <head>
     <title>出错了</title>
+    <style >
+        div{
+            background-image: url("../image/error.jpg");
+            background-size: 100%;
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+
+        }
+    </style>
 </head>
 <body>
-<h1>出错了</h1>
+<div></div>
+<script>
+    window.setTimeout(function () {
+        window.location.href="/jsp/index.jsp"
+    },1000)
+</script>
 </body>
 </html>

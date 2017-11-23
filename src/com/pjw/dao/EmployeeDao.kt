@@ -4,6 +4,7 @@ import com.pjw.idao.IBase
 import com.pjw.model.Employee
 import com.pjw.model.SqlStmt
 import com.pjw.utils.ConnectionManager
+
 import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -12,7 +13,7 @@ class EmployeeDao: IBase<Employee> {
 
     override fun insert(e: Employee): Boolean {
         var result=false
-        val con=ConnectionManager.getInstance().connection
+        val con= ConnectionManager.getInstance().connection
         val pstmt=con.prepareStatement(SqlStmt.INSERT_EMPL)
         pstmt.setString(1,e.emp_no)
         pstmt.setString(2,e.emp_name)
